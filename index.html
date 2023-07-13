@@ -11,23 +11,18 @@
 <body>
     <h1>Meine To-Do Liste</h1>
 
-    <form class="field">
+    <div class="field">
         <input type="text" id="input-text" placeholder="write something !">
-        <button>Add</button>
-        <select>
-            <option value="Show All">Show All</option>
-            <option value="Show Completed">Show Completed</option>
-            <option value="Show Uncompleted">Show Uncompleted</option>
+        <button onclick="addtask()">Add</button>
+        <select id="filter">
+            <option value="Show_All">Show All</option>
+            <option value="Show_Completed">Show Completed</option>
+            <option value="Show_Uncompleted">Show Uncompleted</option>
         </select>
-    </form>
+    </div>
    
-    <ul>
-        <li class="checked">task 1<span class="material-symbols-outlined">
-            delete
-          </span></li>
-        
-        <li>task 1</li>
-        <li>task 1</li>
+    <ul id="list">
+       
     </ul>
 
     <script src="assets/script.js"></script>
