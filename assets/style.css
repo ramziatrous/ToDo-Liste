@@ -81,12 +81,26 @@ div{
     color:#c32912;
     text-decoration: line-through;
   }
-ul li span{
+  .delete{
     position: absolute;
     right: 15%;
     width: 40px;
     height: 40px;
     color: red;
+}
+.edit{
+  position: absolute;
+  right: 18%;
+  width: 40px;
+  height: 40px;
+  color: rgb(28, 6, 153);
+}
+.save{
+  position: absolute;
+  right: 10%;
+  width: 40px;
+  height: 40px;
+  color: rgb(21, 224, 10);
 }
 .footer {
     background-color: #333;
