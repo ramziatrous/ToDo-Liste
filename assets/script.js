@@ -35,24 +35,32 @@ list.addEventListener("click", function (e) {
     let editinput = document.createElement("input");
     editinput.type = "text";
     editinput.value = li.firstChild.textContent; 
-    
-    let save = document.createElement("span");
-    save.classList.add("material-symbols-outlined");
-    save.classList.add("save");
-    save.innerHTML = "save";
-    save.addEventListener('click', saveEditedTask);
-    li.appendChild(save);
     li.replaceChild(editinput, li.firstChild);
     save();
+    let savebtn = document.createElement("span");
+    savebtn.classList.add("material-symbols-outlined");
+    savebtn.classList.add("save");
+    savebtn.innerHTML = "save";
+    li.appendChild(savebtn);
+    savebtn.addEventListener('click', saveEditedTask);
+    
   }
   function saveEditedTask() {
     var li =e.target.parentElement;
-    var editInput = li.querySelector('input[type="text"]');
-    var task= document.createElement('li');
-    task.textContent = editInput.value;
     
-    li.replaceChild(task, editInput);
-    li.removeChild(this);
+    var editInput = li.querySelector('input[type="text"]');
+    li.textContent = editInput.value;
+    let span = document.createElement("span");
+    span.classList.add("material-symbols-outlined");
+    span.classList.add("edit");
+    span.innerHTML = "edit";
+    li.appendChild(span);
+    let span1 = document.createElement("span");
+    span1.classList.add("material-symbols-outlined");
+    span1.classList.add("delete");
+    span1.innerHTML = "delete";
+    li.appendChild(span1);
+    save();
     
   }
 });
@@ -96,3 +104,20 @@ function filter(e) {
       }
     });
   }
+
+  const search_input = document.getElementById("search");
+  const searchbtn = document.getElementById("search_btn");
+  searchbtn.addEventListener("click",search) ;
+  function search(e) {
+    const tasklist = list.childNodes;
+    tasklist.forEach(function (task) {
+        if (task.nodeName === "LI") {
+            if (task.textContent.search(search_input.value)== -1){
+                task.style.display = "none";
+            }
+            else{
+                task.style.display = "flex";
+            }
+        }
+    })
+};
