@@ -3,7 +3,11 @@ const list = document.getElementById("list");
 
 function addtask() {
   if (inputbox.value === "") {
-    alert("please write something");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Write something',
+    })
   } else {
     let li = document.createElement("li");
     li.innerHTML = inputbox.value;
@@ -72,7 +76,6 @@ function save(){
 function show(){
     list.innerHTML= localStorage.getItem("data")
 }
-show();
 
 
 const filteroption = document.getElementById("filter");
@@ -108,6 +111,7 @@ function filter(e) {
   const search_input = document.getElementById("search");
   const searchbtn = document.getElementById("search_btn");
   searchbtn.addEventListener("click",search) ;
+
   function search(e) {
     const tasklist = list.childNodes;
     tasklist.forEach(function (task) {
@@ -121,3 +125,4 @@ function filter(e) {
         }
     })
 };
+show();
